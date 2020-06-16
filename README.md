@@ -2,6 +2,8 @@
 
 Blog-like site that explains [gbnscript](https://github.com/yyyk/gbnscript)
 
+Built with [Nuxt.js](https://nuxtjs.org/), [Vuetify](https://vuetifyjs.com), and [Typescript](https://www.typescriptlang.org/)
+
 >
 
 ## Build Setup
