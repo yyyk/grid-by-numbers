@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Editor.vue renders correctly 1`] = `
+"<div class=\\"c-editor\\" style=\\"width: 100%;\\">
+  <div class=\\"editor-container\\">
+    <div class=\\"editor\\"></div>
+  </div>
+  <div class=\\"svg-container\\" style=\\"width: 50%;\\">
+    <renderer-stub width=\\"0\\" height=\\"0\\" griddata=\\"[object Object]\\"></renderer-stub>
+  </div>
+</div>"
+`;

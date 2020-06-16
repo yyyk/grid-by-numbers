@@ -1,0 +1,289 @@
+<template>
+  <div
+    ref="container"
+    :class="['c-editor', { animated: animated }]"
+    :style="{ width: hideEditor ? '50%' : '100%' }"
+  >
+    <div v-if="!hideEditor" :class="['editor-container', { left: svgShow }]">
+      <div ref="editor" class="editor" />
+    </div>
+    <div
+      :class="['svg-container', { show: svgShow }]"
+      :style="{ width: hideEditor ? '100%' : '50%' }"
+    >
+      <Renderer :width="width" :height="height" :grid-data="grid" />
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+import Renderer from './Renderer.vue'
+import { interpret, Output } from '@/lib/gbnscript/src'
+import { GridData } from '@/types/Renderer'
+
+// TODO: colors in dark mode
+
+export default Vue.extend({
+  components: {
+    Renderer
+  },
+  props: {
+    value: {
+      type: String,
+      default: '// enter program\n'
+    } as PropOptions<string>,
+    animated: {
+      type: Boolean,
+      default: false
+    } as PropOptions<boolean>,
+    focused: {
+      type: Boolean,
+      default: false
+    } as PropOptions<boolean>,
+    compiled: {
+      type: Boolean,
+      default: false
+    } as PropOptions<boolean>,
+    readOnly: {
+      type: Boolean,
+      default: false
+    } as PropOptions<boolean>,
+    hideEditor: {
+      type: Boolean,
+      default: false
+    } as PropOptions<boolean>
+  },
+  data: () => ({
+    editor: null as any,
+    fontSize: 16,
+    svgShow: false,
+    width: 0,
+    height: 0,
+    grid: {
+      id: '0',
+      tag: 'group',
+      children: []
+    } as GridData
+  }),
+  mounted() {
+    if ((window as any).ace) {
+      this.initEditor()
+    }
+  },
+  beforeDestroy() {
+    if (this.editor) {
+      this.editor.destroy()
+      this.editor.container.remove()
+    }
+  },
+  methods: {
+    getCode() {
+      return (this.editor && this.editor.getValue()) || ''
+    },
+    initEditor() {
+      this.editor = (window as any).ace.edit(this.$refs.editor as any)
+      if (this.editor) {
+        this.editor.$blockScrolling = Infinity
+        this.editor.setFontSize(`${this.fontSize.toString()}px`)
+        this.editor.setShowPrintMargin(false)
+        this.editor.getSession().setUseWrapMode(true)
+        this.editor.getSession().setUseSoftTabs(true)
+        this.editor.getSession().setTabSize(2)
+        this.editor.setValue(this.value)
+        this.editor.execCommand('gotolineend')
+        this.focused && this.editor.focus()
+
+        if (this.compiled) {
+          this.compile()
+        }
+
+        if (!this.readOnly) {
+          this.editor.commands.addCommand({
+            name: 'compile',
+            bindKey: { win: 'Ctrl-Enter', mac: 'Ctrl-Enter' }, // Command-Enter
+            exec: () => {
+              this.compile()
+              // const message = this.compile()
+              // console.log('message', message)
+              // this.$emit('compiled', message)
+            }
+          })
+        }
+
+        // // command + to increase font size
+        // this.editor.commands.addCommand({
+        //   name: 'increaseFontSize',
+        //   bindKey: { win: 'Ctrl-=', mac: 'Ctrl-=' },
+        //   exec: () => {
+        //     this.fontSize++
+        //     this.editor &&
+        //       this.editor.setFontSize(`${this.fontSize.toString()}px`)
+        //     console.log('plus', this.fontSize)
+        //   }
+        // })
+        // // command - to decrease font size
+        // this.editor.commands.addCommand({
+        //   name: 'decreaseFontSize',
+        //   bindKey: { win: 'Ctrl--', mac: 'Ctrl--' },
+        //   exec: () => {
+        //     this.fontSize--
+        //     this.editor &&
+        //       this.editor.setFontSize(`${this.fontSize.toString()}px`)
+        //     console.log('minus', this.fontSize)
+        //   }
+        // })
+
+        if (this.readOnly) {
+          // https://github.com/ajaxorg/ace/issues/266
+          this.editor.setReadOnly(true)
+          // this.editor.container.style.pointerEvents = 'none'
+          this.editor.setHighlightActiveLine(false)
+          this.editor.setHighlightGutterLine(false)
+          this.editor.renderer.$cursorLayer.element.style.opacity = 0
+          // this.editor.textInput.getElement().disabled = true
+          // this.editor.commands.commmandKeyBinding = {}
+        }
+      }
+    },
+    compile() {
+      if (this.editor) {
+        const result: Output = interpret(this.editor.getValue())
+        // console.log('result', result)
+        if (result.success) {
+          if (!result.data) {
+            return {
+              success: true,
+              message: 'compiled.'
+            }
+          }
+          if (result.data.grid) {
+            this.grid = {
+              id: 'root',
+              tag: 'group',
+              children: result.data.grid
+            }
+          }
+          if (result.data.size) {
+            this.width = result.data.size.width || 0
+            this.height = result.data.size.height || 0
+          }
+          if (!this.svgShow) {
+            this.svgShow = true
+          }
+          return {
+            success: true,
+            message: 'success!'
+          }
+        }
+        // console.log('interpret:', interpret(this.editor.getValue()))
+        if (result.error) {
+          return {
+            success: false,
+            message: `[${result.error.type}]: ${result.error.message} at line ${result.error.line} column ${result.error.column}`
+          }
+        }
+      }
+      return {
+        success: false,
+        message: ''
+      }
+    }
+  }
+})
+</script>
+
+<style lang="scss">
+$dur: 0.4s;
+
+.c-editor {
+  width: 100%;
+  height: 430px; // TODO:
+  // max-width: 920px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0 auto;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+
+  &.animated {
+    .editor-container {
+      transition: left $dur, transform $dur;
+    }
+
+    .svg-container {
+      transition: width $dur, opacity $dur;
+      transition-delay: $dur;
+    }
+  }
+
+  .editor-container {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &.left {
+      left: 0;
+      transform: translateX(0%);
+    }
+
+    .editor {
+      width: 100%;
+      height: 100%;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .ace_gutter {
+      // background: #e6e6e6;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .ace_gutter-layer {
+      width: 64px !important;
+    }
+
+    // .ace_marker-layer .ace_selection {
+    //   background: rgba(181, 213, 255, 0.5);
+    //   opacity: 0.5;
+    // }
+
+    // .ace_text-layer {
+    //   display: flex;
+    //   flex-flow: column nowrap;
+    //   justify-content: flex-start;
+    //   align-items: flex-start;
+    // }
+
+    // .ace_line {
+    //   display: inline-block;
+    //   color: white;
+    //   background-color: rgba(0, 0, 0, 0.4);
+    // }
+  }
+
+  .svg-container {
+    position: relative;
+    width: 0;
+    height: 100%;
+    opacity: 0;
+    background-color: #f0f0f0;
+    // background-color: #e6e6e6;
+    overflow: hidden;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    &.show {
+      width: 50%;
+      opacity: 1;
+    }
+  }
+}
+</style>

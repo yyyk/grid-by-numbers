@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renderer.vue renders correctly 1`] = `
+"<g id=\\"0\\" transform=\\"matrix(1, 0, 0, 1, 0, 0)\\">
+  <!---->
+</g>"
+`;
