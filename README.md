@@ -1,5 +1,7 @@
 # grid-by-numbers
 
+Blog-like site that explains [gbnscript](https://github.com/yyyk/gbnscript)
+
 >
 
 ## Build Setup
