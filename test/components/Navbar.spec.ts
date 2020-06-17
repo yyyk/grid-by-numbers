@@ -80,6 +80,9 @@ describe('Navbar.vue', () => {
 
     it('should open when .v-app-bar__nav-icon is clicked', async () => {
       const wrapper = mountFunction()
+      wrapper.setData({
+        drawer: false
+      })
       const btn = wrapper.find('.v-app-bar__nav-icon')
       await btn.trigger('click')
       expect(wrapper.vm.$data.drawer).toBe(true)
