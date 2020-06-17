@@ -5,7 +5,8 @@ describe('mutations', () => {
   describe('SET_MENU', () => {
     it('sets menu', () => {
       const state = {
-        menu: [] as MenuLink[]
+        menu: [] as MenuLink[],
+        code: ''
       }
       const menu: MenuLink[] = [
         {
@@ -14,14 +15,24 @@ describe('mutations', () => {
         }
       ]
       mutations.SET_MENU(state, menu)
-      expect(state).toEqual({
-        menu: [
-          {
-            title: 'title-1',
-            path: 'path-1'
-          }
-        ]
-      })
+      expect(state.menu).toEqual([
+        {
+          title: 'title-1',
+          path: 'path-1'
+        }
+      ])
+    })
+  })
+
+  describe('UPDATE_CODE', () => {
+    it('updates code', () => {
+      const state = {
+        menu: [] as MenuLink[],
+        code: ''
+      }
+      const code = 'some code'
+      mutations.UPDATE_CODE(state, code)
+      expect(state.code).toBe('some code')
     })
   })
 })
@@ -45,6 +56,15 @@ describe('actions', () => {
       ])
     })
   })
+
+  describe('updateCode', () => {
+    it('updates code', () => {
+      const commit = jest.fn()
+      const code = 'some code'
+      ;(actions as any).updateCode({ commit }, code)
+      expect(commit).toHaveBeenCalledWith('UPDATE_CODE', 'some code')
+    })
+  })
 })
 
 describe('getters', () => {
@@ -56,7 +76,8 @@ describe('getters', () => {
             title: 'title-1',
             path: 'path-1'
           }
-        ]
+        ],
+        code: ''
       }
       const actual = (getters as any).menu(state)
       expect(actual).toEqual([
@@ -65,6 +86,17 @@ describe('getters', () => {
           path: 'path-1'
         }
       ])
+    })
+  })
+
+  describe('code', () => {
+    it('returns code', () => {
+      const state = {
+        menu: [],
+        code: 'some code'
+      }
+      const actual = (getters as any).code(state)
+      expect(actual).toBe('some code')
     })
   })
 })

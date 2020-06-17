@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`editor.vue renders correctly 1`] = `
+"<v-container-stub tag=\\"div\\" fill-height=\\"\\">
+  <v-snackbar-stub color=\\"success\\" tag=\\"div\\" top=\\"true\\" contentclass=\\"\\" timeout=\\"4000\\" transition=\\"v-snack-transition\\"><span></span></v-snackbar-stub>
+  <v-layout-stub tag=\\"div\\" column=\\"\\" justify-center=\\"\\" align-center=\\"\\">
+    <editor-stub value=\\"\\" focused=\\"true\\"></editor-stub>
+  </v-layout-stub>
+</v-container-stub>"
+`;

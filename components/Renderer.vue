@@ -10,6 +10,7 @@
   >
     <!-- BEGIN AXES -->
     <g
+      v-if="gridData"
       :transform="`translate(${margin.left}, ${margin.top})`"
       fill="none"
       stroke="rgba(0, 0, 0, 0.87)"
@@ -25,59 +26,51 @@
         stroke="none"
       />
       <g id="x-axis">
-        <g
-          v-for="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-          :key="`x-axis-${num}`"
-        >
+        <g v-for="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" :key="`x-axis-${num}`">
           <line
             :x1="(num * width) / 10"
             y1="0"
             :x2="(num * width) / 10"
             y2="-10"
-            stroke-width="2"
+            stroke-width="1"
+            vector-effect="non-scaling-stroke"
           />
           <text
             :x="(num * width) / 10"
             :y="-14"
             fill="rgba(0, 0, 0, 0.87)"
             stroke="none"
-            font-size="24px"
+            :font-size="fontSize"
             dominant-baseline="baseline"
             text-anchor="middle"
-          >
-            {{ ((num * width) / 10).toFixed(0) }}
-          </text>
+          >{{ ((num * width) / 10).toFixed(0) }}</text>
         </g>
       </g>
       <g id="y-axis">
-        <g
-          v-for="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-          :key="`y-axis-${num}`"
-        >
+        <g v-for="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" :key="`y-axis-${num}`">
           <line
             x1="0"
             :y1="(num * height) / 10"
             x2="-10"
             :y2="(num * height) / 10"
-            stroke-width="2"
+            stroke-width="1"
+            vector-effect="non-scaling-stroke"
           />
           <text
             :x="-16"
             :y="(num * height) / 10"
             fill="rgba(0, 0, 0, 0.87)"
             stroke="none"
-            font-size="24px"
+            :font-size="fontSize"
             dominant-baseline="middle"
             text-anchor="end"
-          >
-            {{ ((num * height) / 10).toFixed(0) }}
-          </text>
+          >{{ ((num * height) / 10).toFixed(0) }}</text>
         </g>
       </g>
     </g>
     <!-- END AXES -->
     <!-- BEGIN MAIN IMAGE -->
-    <g :transform="`translate(${margin.left}, ${margin.top})`">
+    <g v-if="gridData" :transform="`translate(${margin.left}, ${margin.top})`">
       <Group :attributes="gridData" />
     </g>
     <!-- END MAIN IMAGE -->
@@ -88,8 +81,6 @@
 import Vue, { PropOptions } from 'vue'
 import Group from './svg/Group.vue'
 import { GridData } from '@/types/Renderer'
-
-// TODO: axis
 
 export default Vue.extend({
   components: {
@@ -106,8 +97,8 @@ export default Vue.extend({
     } as PropOptions<number>,
     gridData: {
       type: Object,
-      required: true
-    } as PropOptions<GridData>
+      default: null
+    } as PropOptions<GridData | null>
   },
   data: () => ({
     margin: {
@@ -123,6 +114,9 @@ export default Vue.extend({
     },
     computedHeight(): number {
       return this.height + this.margin.top + this.margin.bottom
+    },
+    fontSize(): number {
+      return Math.round(Math.max(this.width, this.height) / 42)
     }
   }
 })

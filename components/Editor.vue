@@ -1,16 +1,9 @@
 <template>
-  <div
-    ref="container"
-    :class="['c-editor', { animated: animated }]"
-    :style="{ width: hideEditor ? '50%' : '100%' }"
-  >
-    <div v-if="!hideEditor" :class="['editor-container', { left: svgShow }]">
+  <div ref="container" class="c-editor" :style="{ width: hideEditor ? '50%' : '100%' }">
+    <div v-if="!hideEditor" class="editor-container">
       <div ref="editor" class="editor" />
     </div>
-    <div
-      :class="['svg-container', { show: svgShow }]"
-      :style="{ width: hideEditor ? '100%' : '50%' }"
-    >
+    <div class="svg-container" :style="{ width: hideEditor ? '100%' : '50%' }">
       <Renderer :width="width" :height="height" :grid-data="grid" />
     </div>
   </div>
@@ -33,10 +26,6 @@ export default Vue.extend({
       type: String,
       default: '// enter program\n'
     } as PropOptions<string>,
-    animated: {
-      type: Boolean,
-      default: false
-    } as PropOptions<boolean>,
     focused: {
       type: Boolean,
       default: false
@@ -57,14 +46,9 @@ export default Vue.extend({
   data: () => ({
     editor: null as any,
     fontSize: 16,
-    svgShow: false,
     width: 0,
     height: 0,
-    grid: {
-      id: '0',
-      tag: 'group',
-      children: []
-    } as GridData
+    grid: null as GridData | null
   }),
   mounted() {
     if ((window as any).ace) {
@@ -103,15 +87,14 @@ export default Vue.extend({
             name: 'compile',
             bindKey: { win: 'Ctrl-Enter', mac: 'Ctrl-Enter' }, // Command-Enter
             exec: () => {
-              this.compile()
-              // const message = this.compile()
+              const message = this.compile()
               // console.log('message', message)
-              // this.$emit('compiled', message)
+              this.$emit('compiled', message)
             }
           })
         }
 
-        // // command + to increase font size
+        // command + to increase font size
         // this.editor.commands.addCommand({
         //   name: 'increaseFontSize',
         //   bindKey: { win: 'Ctrl-=', mac: 'Ctrl-=' },
@@ -168,12 +151,9 @@ export default Vue.extend({
             this.width = result.data.size.width || 0
             this.height = result.data.size.height || 0
           }
-          if (!this.svgShow) {
-            this.svgShow = true
-          }
           return {
             success: true,
-            message: 'success!'
+            message: 'compile success!'
           }
         }
         // console.log('interpret:', interpret(this.editor.getValue()))
@@ -209,29 +189,12 @@ $dur: 0.4s;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 
-  &.animated {
-    .editor-container {
-      transition: left $dur, transform $dur;
-    }
-
-    .svg-container {
-      transition: width $dur, opacity $dur;
-      transition-delay: $dur;
-    }
-  }
-
   .editor-container {
     position: relative;
     width: 50%;
     height: 100%;
     margin: 0;
-    left: 50%;
-    transform: translateX(-50%);
-
-    &.left {
-      left: 0;
-      transform: translateX(0%);
-    }
+    left: 0;
 
     .editor {
       width: 100%;
@@ -269,9 +232,9 @@ $dur: 0.4s;
 
   .svg-container {
     position: relative;
-    width: 0;
+    width: 50%;
     height: 100%;
-    opacity: 0;
+    opacity: 1;
     background-color: #f0f0f0;
     // background-color: #e6e6e6;
     overflow: hidden;
@@ -279,11 +242,6 @@ $dur: 0.4s;
     flex-flow: row;
     justify-content: center;
     align-items: flex-start;
-
-    &.show {
-      width: 50%;
-      opacity: 1;
-    }
   }
 }
 </style>

@@ -3,10 +3,20 @@
     <v-app-bar app absolute flat>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>
-        <nuxt-link to="/" exact class="text--primary header-title-link">
-          Grid By Numbers
-        </nuxt-link>
+        <nuxt-link to="/" exact class="text--primary header-title-link">Grid By Numbers</nuxt-link>
       </v-toolbar-title>
+      <v-spacer />
+      <v-btn
+        v-if="showEditorLink"
+        depressed
+        nuxt
+        exact
+        tag="a"
+        color="primary"
+        to="/editor"
+        class="editor-link"
+      >editor</v-btn>
+      <v-btn v-else depressed color="primary" @click="onCompile" class="compile-button">compile</v-btn>
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
@@ -43,10 +53,32 @@ import { mapGetters } from 'vuex'
 
 export default Vue.extend({
   data: () => ({
-    drawer: false
+    drawer: false,
+    showEditorLink: false
   }),
   computed: {
     ...mapGetters(['menu'])
+  },
+  watch: {
+    $route() {
+      this.setShowEditorLink()
+    }
+  },
+  mounted() {
+    this.setShowEditorLink()
+  },
+  methods: {
+    setShowEditorLink() {
+      const fullPath = this.$route.fullPath
+      if (fullPath && /^\/editor/i.test(fullPath)) {
+        this.showEditorLink = false
+      } else {
+        this.showEditorLink = true
+      }
+    },
+    onCompile() {
+      this.$nuxt.$emit('compile')
+    }
   }
 })
 </script>

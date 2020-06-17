@@ -6,116 +6,72 @@ exports[`Renderer.vue renders correctly 1`] = `
     <rect id=\\"background\\" x=\\"0\\" y=\\"0\\" width=\\"0\\" height=\\"0\\" fill=\\"white\\" stroke=\\"none\\"></rect>
     <g id=\\"x-axis\\">
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"2\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"0\\" y2=\\"-10\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"0\\" y=\\"-14\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"baseline\\" text-anchor=\\"middle\\">0</text>
       </g>
     </g>
     <g id=\\"y-axis\\">
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
       <g>
-        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"2\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"24px\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">
-          0
-        </text>
+        <line x1=\\"0\\" y1=\\"0\\" x2=\\"-10\\" y2=\\"0\\" stroke-width=\\"1\\" vector-effect=\\"non-scaling-stroke\\"></line> <text x=\\"-16\\" y=\\"0\\" fill=\\"rgba(0, 0, 0, 0.87)\\" stroke=\\"none\\" font-size=\\"0\\" dominant-baseline=\\"middle\\" text-anchor=\\"end\\">0</text>
       </g>
     </g>
   </g>

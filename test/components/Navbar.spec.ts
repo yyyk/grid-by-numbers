@@ -41,6 +41,11 @@ describe('Navbar.vue', () => {
       localVue,
       vuetify,
       stubs: { NuxtLink: RouterLinkStub },
+      mocks: {
+        $route: {
+          fullPath: ''
+        }
+      },
       ...options
     })
   }
@@ -70,6 +75,54 @@ describe('Navbar.vue', () => {
 
     const title = wrapper.find('.header-title-link')
     expect(title.exists()).toBe(true)
+  })
+
+  describe('editor/compile button', () => {
+    it('should show editor button if the fullPath is not /editor', async () => {
+      const wrapper = mountFunction({
+        mocks: {
+          $route: {
+            fullPath: '/'
+          }
+        }
+      })
+      await wrapper.vm.$nextTick()
+      expect(wrapper.vm.$data.showEditorLink).toBe(true)
+      const button = wrapper.find('.editor-link')
+      expect(button.exists()).toBe(true)
+    })
+
+    it('should show compile button if the fullPath is /editor', async () => {
+      const wrapper = mountFunction({
+        mocks: {
+          $route: {
+            fullPath: '/editor'
+          }
+        }
+      })
+      await wrapper.vm.$nextTick()
+      expect(wrapper.vm.$data.showEditorLink).toBe(false)
+      const button = wrapper.find('.compile-button')
+      expect(button.exists()).toBe(true)
+    })
+
+    it("should emit 'compile' when compile button is clicked", async () => {
+      const emit = jest.fn()
+      const wrapper = mountFunction({
+        mocks: {
+          $route: {
+            fullPath: '/editor'
+          },
+          $nuxt: {
+            $emit: emit
+          }
+        }
+      })
+      await wrapper.vm.$nextTick()
+      const button = wrapper.find('.compile-button')
+      button.trigger('click')
+      expect(emit).toHaveBeenCalledWith('compile')
+    })
   })
 
   describe('Nav drawer', () => {
