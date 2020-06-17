@@ -33,6 +33,14 @@ export default Vue.extend({
       prev,
       next
     }
+  },
+  data: () => ({
+    doc: null as any
+  }),
+  head() {
+    return {
+      title: this.doc ? this.doc?.title : ''
+    }
   }
 })
 </script>

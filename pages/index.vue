@@ -33,6 +33,11 @@ export default Vue.extend({
       prev,
       next
     }
+  },
+  head() {
+    return {
+      title: 'Introduction'
+    }
   }
 })
 </script>
