@@ -54,7 +54,7 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   data: () => ({
     drawer: false,
-    showEditorLink: false
+    showEditorLink: true
   }),
   computed: {
     ...mapGetters(['menu'])
