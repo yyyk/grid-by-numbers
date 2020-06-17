@@ -15,6 +15,7 @@
       :light="!dark"
       :dark="dark"
       class="toggle"
+      aria-label="Toggle Dark Mode"
       @click="toggleDark"
     >
       <v-icon :light="!dark" :dark="dark">mdi-television</v-icon>

@@ -8,7 +8,13 @@
         </nuxt-link>
       </v-toolbar-title>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" app disable-route-watcher floating>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      :disable-route-watcher="true"
+      :disable-resize-watcher="true"
+      floating
+    >
       <v-list nav dense :expand="true">
         <v-subheader class="mt-2">
           <span class="nav-drawer-header">Table of Contents</span>

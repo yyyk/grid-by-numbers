@@ -4,11 +4,12 @@
       v-if="prev"
       :to="prev.path === '/index' ? '/' : prev.path"
       exact
+      prefetch
       class="prev"
     >
       &#60; <span class="link-text">To the previous chapter</span>
     </nuxt-link>
-    <nuxt-link v-if="next" :to="next.path" exact class="next">
+    <nuxt-link v-if="next" :to="next.path" exact prefetch class="next">
       <span class="link-text">To the next chapter</span> &#62;
     </nuxt-link>
   </div>
