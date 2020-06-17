@@ -64,6 +64,11 @@ export default Vue.extend({
         this.success = message.success
       })
     }
+  },
+  head() {
+    return {
+      title: 'Code Editor'
+    }
   }
 })
 </script>
