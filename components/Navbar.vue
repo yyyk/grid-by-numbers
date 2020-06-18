@@ -73,7 +73,7 @@ export default Vue.extend({
       this.setButtonVisibility()
     }
   },
-  mounted() {
+  created() {
     this.setButtonVisibility()
   },
   methods: {

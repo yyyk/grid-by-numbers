@@ -5,8 +5,7 @@ exports[`Navbar.vue renders correctly 1`] = `
   <header class=\\"v-sheet theme--light v-toolbar v-toolbar--absolute v-toolbar--flat v-app-bar\\" style=\\"height: 64px; margin-top: 0px; transform: translateY(0px); left: 0px; right: 0px;\\">
     <div class=\\"v-toolbar__content\\" style=\\"height: 64px;\\"><button type=\\"button\\" class=\\"v-app-bar__nav-icon v-btn v-btn--flat v-btn--icon v-btn--round theme--light v-size--default\\"><span class=\\"v-btn__content\\"><i aria-hidden=\\"true\\" class=\\"v-icon notranslate mdi mdi-menu theme--light\\"></i></span></button>
       <div class=\\"v-toolbar__title\\"><a class=\\"text--primary header-title-link\\">Grid By Numbers</a></div>
-      <div class=\\"spacer\\"></div>
-      <!---->
+      <div class=\\"spacer\\"></div> <a class=\\"editor-link v-btn v-btn--depressed v-btn--router theme--light v-size--default primary\\" aria-label=\\"Link to Code Editor\\"><span class=\\"v-btn__content\\">editor</span></a>
       <!---->
     </div>
   </header>
