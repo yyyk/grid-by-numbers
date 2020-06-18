@@ -50,7 +50,8 @@ export default Vue.extend({
     fontSize: 16,
     width: 0,
     height: 0,
-    grid: null as GridData | null
+    grid: null as GridData | null,
+    isCompiling: false
   }),
   mounted() {
     if ((window as any).ace) {
@@ -132,8 +133,11 @@ export default Vue.extend({
       }
     },
     compile() {
-      if (this.editor) {
+      if (this.editor && !this.isCompiling) {
+        this.isCompiling = true
+        this.$nuxt.$emit('disableCompileButton')
         const result: Output = interpret(this.editor.getValue())
+        this.isCompiling = false
         // console.log('result', result)
         if (result.success) {
           if (!result.data) {

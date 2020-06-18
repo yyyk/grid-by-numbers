@@ -23,6 +23,8 @@
         color="primary"
         class="compile-button"
         aria-label="Compile Code"
+        :loading="disableCompileButton"
+        :disabled="disableCompileButton"
         @click="onCompile"
       >compile</v-btn>
     </v-app-bar>
@@ -63,7 +65,8 @@ export default Vue.extend({
   data: () => ({
     drawer: false,
     showEditorLink: false,
-    showCompileButton: false
+    showCompileButton: false,
+    disableCompileButton: false
   }),
   computed: {
     ...mapGetters(['menu'])
@@ -75,6 +78,18 @@ export default Vue.extend({
   },
   created() {
     this.setButtonVisibility()
+  },
+  mounted() {
+    this.$nuxt.$on('disableCompileButton', () => {
+      this.disableCompileButton = true
+    })
+    this.$nuxt.$on('compiled', () => {
+      this.disableCompileButton = false
+    })
+  },
+  beforeDestroy() {
+    this.$nuxt.$off('disableCompileButton')
+    this.$nuxt.$off('compiled')
   },
   methods: {
     setButtonVisibility() {
@@ -88,6 +103,7 @@ export default Vue.extend({
       }
     },
     onCompile() {
+      this.disableCompileButton = true
       this.$nuxt.$emit('compile')
     }
   }

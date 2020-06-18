@@ -44,6 +44,10 @@ describe('Navbar.vue', () => {
       mocks: {
         $route: {
           fullPath: ''
+        },
+        $nuxt: {
+          $on: jest.fn(),
+          $off: jest.fn()
         }
       },
       ...options
@@ -83,6 +87,10 @@ describe('Navbar.vue', () => {
         mocks: {
           $route: {
             fullPath: '/'
+          },
+          $nuxt: {
+            $on: jest.fn(),
+            $off: jest.fn()
           }
         }
       })
@@ -99,6 +107,10 @@ describe('Navbar.vue', () => {
         mocks: {
           $route: {
             fullPath: '/editor'
+          },
+          $nuxt: {
+            $on: jest.fn(),
+            $off: jest.fn()
           }
         }
       })
@@ -118,7 +130,9 @@ describe('Navbar.vue', () => {
             fullPath: '/editor'
           },
           $nuxt: {
-            $emit: emit
+            $emit: emit,
+            $on: jest.fn(),
+            $off: jest.fn()
           }
         }
       })
