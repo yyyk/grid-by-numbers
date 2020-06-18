@@ -15,7 +15,9 @@ import Renderer from './Renderer.vue'
 import { interpret, Output } from '@/lib/gbnscript/src'
 import { GridData } from '@/types/Renderer'
 
-// TODO: colors in dark mode
+// TODO:
+// colors in dark mode
+// smaller screen layout
 
 export default Vue.extend({
   components: {
@@ -178,8 +180,8 @@ $dur: 0.4s;
 
 .c-editor {
   width: 100%;
-  height: 430px; // TODO:
-  // max-width: 920px;
+  height: 430px;
+  max-width: 900px;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -235,8 +237,7 @@ $dur: 0.4s;
     width: 50%;
     height: 100%;
     opacity: 1;
-    background-color: #f0f0f0;
-    // background-color: #e6e6e6;
+    background-color: #f0f0f0; // #e6e6e6
     overflow: hidden;
     display: flex;
     flex-flow: row;

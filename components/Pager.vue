@@ -7,7 +7,8 @@
       prefetch
       class="prev"
     >
-      &#60; <span class="link-text">To the previous chapter</span>
+      &#60;
+      <span class="link-text">To the previous chapter</span>
     </nuxt-link>
     <nuxt-link v-if="next" :to="next.path" exact prefetch class="next">
       <span class="link-text">To the next chapter</span> &#62;
@@ -51,7 +52,9 @@ export default Vue.extend({
     text-decoration: none;
     color: rgba(0, 0, 0, 0.87);
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &:active {
       .link-text {
         text-decoration: underline;
       }
