@@ -40,6 +40,10 @@ export default Vue.extend({
     this.localCode = this.code
   },
   mounted() {
+    if (this.localCode && this.$refs.editor) {
+      ;(this.$refs.editor as any).compile()
+      this.$nuxt.$emit('compiled')
+    }
     this.$nuxt.$on('compile', () => {
       if (this.$refs.editor) {
         const message = (this.$refs.editor as any).compile()
@@ -56,6 +60,7 @@ export default Vue.extend({
   methods: {
     ...mapActions(['updateCode']),
     onEditorCompiled(message: { success: boolean; message: string }) {
+      this.$nuxt.$emit('compiled')
       this.snackbar = false
       this.$nextTick(() => {
         this.snackbar = true
