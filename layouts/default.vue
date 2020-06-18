@@ -5,9 +5,7 @@
       <nuxt />
     </v-main>
     <v-footer app absolute inset style="width: auto">
-      <v-col class="text-center" cols="12"
-        >&copy; {{ new Date().getFullYear() }} - Grid By Numbers</v-col
-      >
+      <v-col class="text-center" cols="12">&copy; {{ new Date().getFullYear() }} - Grid By Numbers</v-col>
     </v-footer>
     <v-btn
       fab
@@ -49,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .toggle {
-  z-index: 10;
+  z-index: 5;
   position: fixed;
   right: 16px;
   bottom: 10px;
