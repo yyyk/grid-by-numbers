@@ -1,6 +1,7 @@
 <template>
   <rect
     :id="attributes.id"
+    class="rect"
     :x="computedTag.x"
     :y="computedTag.y"
     :width="computedTag.width"
@@ -41,3 +42,13 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.rect {
+  stroke: #000;
+}
+
+.v-application.theme--dark .rect {
+  stroke: #eee !important;
+}
+</style>

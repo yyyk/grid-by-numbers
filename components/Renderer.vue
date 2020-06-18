@@ -1,5 +1,6 @@
 <template>
   <svg
+    class="renderer"
     width="100%"
     height="100%"
     :viewBox="`0 0 ${computedWidth} ${computedHeight}`"
@@ -153,7 +154,21 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-svg {
+svg.renderer {
   background-color: transparent;
+}
+
+.v-application.theme--dark svg.renderer {
+  line {
+    stroke: #eee !important;
+  }
+
+  text {
+    fill: #eee !important;
+  }
+
+  #background {
+    fill: #2f2f2f;
+  }
 }
 </style>

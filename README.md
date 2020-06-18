@@ -37,7 +37,7 @@ vue-jest had a problem: https://github.com/vuejs/vue-jest/issues/245
 
 - Pager mobile layout
 
-- Editor dark theme & mobile layout
+- Editor mobile layout
 
 - Add more examples in chapter 5
 

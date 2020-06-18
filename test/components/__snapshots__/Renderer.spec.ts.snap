@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Renderer.vue renders correctly 1`] = `
-"<svg width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 120 140\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" preserveAspectRatio=\\"xMidYMid meet\\">
+"<svg width=\\"100%\\" height=\\"100%\\" viewBox=\\"0 0 120 140\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" preserveAspectRatio=\\"xMidYMid meet\\" class=\\"renderer\\">
   <g transform=\\"translate(60, 80)\\" fill=\\"none\\" stroke=\\"rgba(0, 0, 0, 0.87)\\" stroke-width=\\"1\\">
     <rect id=\\"background\\" x=\\"0\\" y=\\"0\\" width=\\"0\\" height=\\"0\\" fill=\\"white\\" stroke=\\"none\\"></rect>
     <g id=\\"x-axis\\">

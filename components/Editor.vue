@@ -16,7 +16,6 @@ import { interpret, Output } from '@/lib/gbnscript/src'
 import { GridData } from '@/types/Renderer'
 
 // TODO:
-// colors in dark mode
 // smaller screen layout
 
 export default Vue.extend({
@@ -123,12 +122,9 @@ export default Vue.extend({
         if (this.readOnly) {
           // https://github.com/ajaxorg/ace/issues/266
           this.editor.setReadOnly(true)
-          // this.editor.container.style.pointerEvents = 'none'
           this.editor.setHighlightActiveLine(false)
           this.editor.setHighlightGutterLine(false)
           this.editor.renderer.$cursorLayer.element.style.opacity = 0
-          // this.editor.textInput.getElement().disabled = true
-          // this.editor.commands.commmandKeyBinding = {}
         }
       }
     },
@@ -180,8 +176,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-$dur: 0.4s;
-
 .c-editor {
   width: 100%;
   height: 430px;
@@ -209,31 +203,12 @@ $dur: 0.4s;
     }
 
     .ace_gutter {
-      // background: #e6e6e6;
       color: rgba(0, 0, 0, 0.87);
     }
 
     .ace_gutter-layer {
       width: 64px !important;
     }
-
-    // .ace_marker-layer .ace_selection {
-    //   background: rgba(181, 213, 255, 0.5);
-    //   opacity: 0.5;
-    // }
-
-    // .ace_text-layer {
-    //   display: flex;
-    //   flex-flow: column nowrap;
-    //   justify-content: flex-start;
-    //   align-items: flex-start;
-    // }
-
-    // .ace_line {
-    //   display: inline-block;
-    //   color: white;
-    //   background-color: rgba(0, 0, 0, 0.4);
-    // }
   }
 
   .svg-container {
@@ -241,12 +216,36 @@ $dur: 0.4s;
     width: 50%;
     height: 100%;
     opacity: 1;
-    background-color: #f0f0f0; // #e6e6e6
+    background-color: #f0f0f0;
     overflow: hidden;
     display: flex;
     flex-flow: row;
     justify-content: center;
     align-items: flex-start;
+  }
+}
+
+.v-application.theme--dark .c-editor {
+  .editor {
+    background-color: #2f2f2f;
+    color: #eee;
+  }
+
+  .ace_gutter {
+    background: #3e3e3e;
+    color: #eee;
+  }
+
+  .ace_gutter-active-line {
+    background-color: #2f2f2f;
+  }
+
+  .ace_marker-layer .ace_active-line {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .svg-container {
+    background: #3e3e3e;
   }
 }
 </style>
