@@ -15,8 +15,16 @@
         color="primary"
         to="/editor"
         class="editor-link"
+        aria-label="Link to Code Editor"
       >editor</v-btn>
-      <v-btn v-else depressed color="primary" @click="onCompile" class="compile-button">compile</v-btn>
+      <v-btn
+        v-if="showCompileButton"
+        depressed
+        color="primary"
+        class="compile-button"
+        aria-label="Compile Code"
+        @click="onCompile"
+      >compile</v-btn>
     </v-app-bar>
     <v-navigation-drawer
       v-model="drawer"
@@ -54,26 +62,29 @@ import { mapGetters } from 'vuex'
 export default Vue.extend({
   data: () => ({
     drawer: false,
-    showEditorLink: true
+    showEditorLink: false,
+    showCompileButton: false
   }),
   computed: {
     ...mapGetters(['menu'])
   },
   watch: {
     $route() {
-      this.setShowEditorLink()
+      this.setButtonVisibility()
     }
   },
   mounted() {
-    this.setShowEditorLink()
+    this.setButtonVisibility()
   },
   methods: {
-    setShowEditorLink() {
+    setButtonVisibility() {
       const fullPath = this.$route.fullPath
       if (fullPath && /^\/editor/i.test(fullPath)) {
         this.showEditorLink = false
+        this.showCompileButton = true
       } else {
         this.showEditorLink = true
+        this.showCompileButton = false
       }
     },
     onCompile() {

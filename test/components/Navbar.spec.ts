@@ -88,6 +88,8 @@ describe('Navbar.vue', () => {
       })
       await wrapper.vm.$nextTick()
       expect(wrapper.vm.$data.showEditorLink).toBe(true)
+      expect(wrapper.vm.$data.showCompileButton).toBe(false)
+
       const button = wrapper.find('.editor-link')
       expect(button.exists()).toBe(true)
     })
@@ -102,6 +104,8 @@ describe('Navbar.vue', () => {
       })
       await wrapper.vm.$nextTick()
       expect(wrapper.vm.$data.showEditorLink).toBe(false)
+      expect(wrapper.vm.$data.showCompileButton).toBe(true)
+
       const button = wrapper.find('.compile-button')
       expect(button.exists()).toBe(true)
     })
