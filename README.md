@@ -32,3 +32,13 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 15.06.2020
 
 vue-jest had a problem: https://github.com/vuejs/vue-jest/issues/245
+
+### TODOs
+
+- Pager mobile layout
+
+- Editor dark theme & mobile layout
+
+- Add more examples in chapter 5
+
+- Write more tests
