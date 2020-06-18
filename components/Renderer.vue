@@ -26,45 +26,45 @@
         stroke="none"
       />
       <g id="x-axis">
-        <g v-for="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" :key="`x-axis-${num}`">
+        <g v-for="num in xTicks" :key="`x-axis-${num}`">
           <line
-            :x1="(num * width) / 10"
+            :x1="num"
             y1="0"
-            :x2="(num * width) / 10"
+            :x2="num"
             y2="-10"
             stroke-width="1"
             vector-effect="non-scaling-stroke"
           />
           <text
-            :x="(num * width) / 10"
+            :x="num"
             :y="-14"
             fill="rgba(0, 0, 0, 0.87)"
             stroke="none"
             :font-size="fontSize"
             dominant-baseline="baseline"
             text-anchor="middle"
-          >{{ ((num * width) / 10).toFixed(0) }}</text>
+          >{{ num.toFixed(0) }}</text>
         </g>
       </g>
       <g id="y-axis">
-        <g v-for="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]" :key="`y-axis-${num}`">
+        <g v-for="num in yTicks" :key="`y-axis-${num}`">
           <line
             x1="0"
-            :y1="(num * height) / 10"
+            :y1="num"
             x2="-10"
-            :y2="(num * height) / 10"
+            :y2="num"
             stroke-width="1"
             vector-effect="non-scaling-stroke"
           />
           <text
             :x="-16"
-            :y="(num * height) / 10"
+            :y="num"
             fill="rgba(0, 0, 0, 0.87)"
             stroke="none"
             :font-size="fontSize"
             dominant-baseline="middle"
             text-anchor="end"
-          >{{ ((num * height) / 10).toFixed(0) }}</text>
+          >{{ num.toFixed(0) }}</text>
         </g>
       </g>
     </g>
@@ -116,7 +116,37 @@ export default Vue.extend({
       return this.height + this.margin.top + this.margin.bottom
     },
     fontSize(): number {
-      return Math.round(Math.max(this.width, this.height) / 42)
+      return Math.max(Math.round(Math.max(this.width, this.height) / 42), 12)
+    },
+    xTicks(): number[] {
+      let unit = 5000
+      if (this.width <= 500) {
+        unit = 50
+      } else if (this.width <= 1000) {
+        unit = 100
+      } else if (this.width <= 5000) {
+        unit = 500
+      } else if (this.width <= 10000) {
+        unit = 1000
+      }
+      const len = Math.floor(this.width / unit) + 1
+      const ticks = Array.from({ length: len }, (_, i) => i * unit)
+      return ticks
+    },
+    yTicks(): number[] {
+      let unit = 5000
+      if (this.height <= 500) {
+        unit = 50
+      } else if (this.height <= 1000) {
+        unit = 100
+      } else if (this.height <= 5000) {
+        unit = 500
+      } else if (this.height <= 10000) {
+        unit = 1000
+      }
+      const len = Math.floor(this.height / unit) + 1
+      const ticks = Array.from({ length: len }, (_, i) => i * unit)
+      return ticks
     }
   }
 })
