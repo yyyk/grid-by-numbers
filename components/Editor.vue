@@ -52,6 +52,11 @@ export default Vue.extend({
     grid: null as GridData | null,
     isCompiling: false
   }),
+  created() {
+    if (this.compiled) {
+      this.compile(this.value)
+    }
+  },
   mounted() {
     if ((window as any).ace) {
       this.initEditor()
@@ -79,10 +84,6 @@ export default Vue.extend({
         this.editor.setValue(this.value)
         this.editor.execCommand('gotolineend')
         this.focused && this.editor.focus()
-
-        if (this.compiled) {
-          this.compile()
-        }
 
         if (!this.readOnly) {
           this.editor.commands.addCommand({
@@ -128,11 +129,13 @@ export default Vue.extend({
         }
       }
     },
-    compile() {
-      if (this.editor && !this.isCompiling) {
+    compile(value?: string) {
+      if ((value || this.editor) && !this.isCompiling) {
         this.isCompiling = true
         this.$nuxt.$emit('disableCompileButton')
-        const result: Output = interpret(this.editor.getValue())
+        const result: Output = interpret(
+          value || (this.editor && this.editor.getValue()) || ''
+        )
         this.isCompiling = false
         // console.log('result', result)
         if (result.success) {
